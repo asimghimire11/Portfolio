@@ -6,7 +6,8 @@ const Contact = () => {
     name: '',
     email: '',
     subject: '',
-    message: ''
+    message: '',
+    honeypot: ''
   });
 
   const [formStatus, setFormStatus] = useState({
@@ -23,26 +24,56 @@ const Contact = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setFormStatus({ message: '', isError: false, isSubmitting: true });
-    
-    // Simulate form submission
-    setTimeout(() => {
+
+    if (formData.honeypot) {
       setFormStatus({
-        message: 'Thank you! Your message has been sent successfully.',
-        isError: false,
+        message: 'Spam detected.',
+        isError: true,
         isSubmitting: false
       });
-      
-      // Reset form
-      setFormData({
-        name: '',
-        email: '',
-        subject: '',
-        message: ''
+      return;
+    }
+
+    try {
+      const response = await fetch("https://formspree.io/f/mwpnnvbj", {
+        method: "POST",
+        headers: {
+          "Accept": "application/json"
+        },
+        body: new FormData(e.target)
       });
-    }, 1500);
+
+      if (response.ok) {
+        setFormStatus({
+          message: 'Thank you! Your message has been sent successfully.',
+          isError: false,
+          isSubmitting: false
+        });
+
+        setFormData({
+          name: '',
+          email: '',
+          subject: '',
+          message: '',
+          honeypot: ''
+        });
+      } else {
+        setFormStatus({
+          message: 'Oops! Something went wrong. Please try again later.',
+          isError: true,
+          isSubmitting: false
+        });
+      }
+    } catch (error) {
+      setFormStatus({
+        message: 'Network error. Please try again later.',
+        isError: true,
+        isSubmitting: false
+      });
+    }
   };
 
   return (
@@ -51,8 +82,9 @@ const Contact = () => {
         <h2 className="section-title">Contact Me</h2>
         <p className="section-subtitle">Let's discuss your project</p>
       </div>
-      
+
       <div className="contact-container">
+        {/* Contact Info */}
         <div className="contact-info">
           <div className="contact-info-item">
             <i className="fas fa-map-marker-alt"></i>
@@ -61,7 +93,7 @@ const Contact = () => {
               <p>Lalitpur-25, Lalitpur, Nepal</p>
             </div>
           </div>
-          
+
           <div className="contact-info-item">
             <i className="fas fa-envelope"></i>
             <div className="contact-info-text">
@@ -69,7 +101,7 @@ const Contact = () => {
               <p>ghimireasim3@gmail.com</p>
             </div>
           </div>
-          
+
           <div className="contact-info-item">
             <i className="fas fa-phone-alt"></i>
             <div className="contact-info-text">
@@ -77,7 +109,7 @@ const Contact = () => {
               <p>+977 9861973100</p>
             </div>
           </div>
-          
+
           <div className="social-links">
             <a href="https://github.com/asimghimire11" target="_blank" rel="noopener noreferrer" className="social-link">
               <i className="fab fa-github"></i>
@@ -87,9 +119,22 @@ const Contact = () => {
             </a>
           </div>
         </div>
-        
+
+        {/* Contact Form */}
         <div className="contact-form-container">
           <form className="contact-form" onSubmit={handleSubmit}>
+            {/* Honeypot field (hidden from users but visible to bots) */}
+            <div style={{ display: "none" }}>
+              <input
+                type="text"
+                name="honeypot"
+                value={formData.honeypot}
+                onChange={handleChange}
+                tabIndex="-1"
+                autoComplete="off"
+              />
+            </div>
+
             <div className="form-group">
               <input
                 type="text"
@@ -100,7 +145,7 @@ const Contact = () => {
                 required
               />
             </div>
-            
+
             <div className="form-group">
               <input
                 type="email"
@@ -111,7 +156,7 @@ const Contact = () => {
                 required
               />
             </div>
-            
+
             <div className="form-group">
               <input
                 type="text"
@@ -122,7 +167,7 @@ const Contact = () => {
                 required
               />
             </div>
-            
+
             <div className="form-group">
               <textarea
                 name="message"
@@ -133,15 +178,15 @@ const Contact = () => {
                 rows="5"
               ></textarea>
             </div>
-            
-            <button 
-              type="submit" 
+
+            <button
+              type="submit"
               className="submit-btn"
               disabled={formStatus.isSubmitting}
             >
               {formStatus.isSubmitting ? 'Sending...' : 'Send Message'}
             </button>
-            
+
             {formStatus.message && (
               <div className={`form-message ${formStatus.isError ? 'error' : 'success'}`}>
                 {formStatus.message}

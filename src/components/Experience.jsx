@@ -55,7 +55,7 @@ const Experience = () => {
       id: 7,
       title: 'General Member',
       company: 'CSIT Association of Nepal',
-      period: '',
+      period: '2022-2025',
       description:
         'Engaged in technical workshops, events, and collaborative activities organised by the association to foster skill development and community involvement.',
     },

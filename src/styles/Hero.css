@@ -83,6 +83,8 @@
   letter-spacing: 0.05em;
   line-height: 1.2;
   text-shadow: 0 0 2px rgba(255, 107, 0, 0.3);
+  font-size: 3.2rem;
+  white-space: nowrap;
 }
 
 .animated-profession::after {
@@ -200,6 +202,18 @@
   height: 90%;
   object-fit: contain;
   clip-path: circle(45% at center);
+}
+
+@media (max-width: 768px) {
+  .animated-profession {
+    font-size: 2.4rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .animated-profession {
+    font-size: 2rem;
+  }
 }
 
 @media (max-width: 1200px) {
