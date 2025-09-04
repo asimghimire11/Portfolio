@@ -25,12 +25,12 @@ const About = () => {
         </div>
         
         <div className="about-content">
-          <h3 className="about-heading">Final-year BSc. CSIT student with practical experience in Odoo development</h3>
+          <h3 className="about-heading">BSc. CSIT graduate (awaiting results) with practical experience in Software development</h3>
           
           <p className="about-text">
-            I'm a final-year BSc. CSIT student at Tribhuvan University with practical experience in Odoo development, 
-            backend systems, and machine learning. Skilled in Python, with hands-on knowledge of NumPy, Pandas, 
-            Matplotlib, and OpenCV.
+            I have completed my BSc. CSIT degree at Tribhuvan University and am currently awaiting final results. 
+            I bring practical experience in Odoo development, backend systems, and machine learning. Skilled in Python, 
+            with hands-on knowledge of NumPy, Pandas, Matplotlib, and OpenCV.
           </p>
           
           <p className="about-text">
@@ -39,8 +39,8 @@ const About = () => {
           </p>
           
           <p className="about-text">
-            Currently studying at Tribhuvan University, Patan Multiple Campus in Kathmandu, Nepal. I'm in my eighth semester 
-            of BSc. CSIT program.
+            I studied at Tribhuvan University, Patan Multiple Campus in Kathmandu, Nepal, where I recently completed my 
+            final semester of the BSc. CSIT program and am now awaiting results.
           </p>
           
           <div className="skills-container">

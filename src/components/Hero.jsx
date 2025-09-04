@@ -75,7 +75,7 @@ const Hero = () => {
               ]}
               wrapper="span"
               speed={99}
-              style={{ fontSize: '3.5rem', fontWeight: '700', color: '#ff6b00', display: 'inline-block' }}
+              style={{ fontWeight: '700', color: '#ff6b00', display: 'inline-block' }}
               repeat={0}
               cursor={false}
               className="animated-profession"
@@ -97,7 +97,7 @@ const Hero = () => {
           <div className="cta-buttons">
             <a href="#contact" className="hire-me-btn">Hire Me</a>
             <a
-              href="/resume/resume.pdf"
+              href="/resume/Asim_Resume.pdf"
               download="Asim_Ghimire_Resume.pdf"
               className="download-cv-btn"
             >
