@@ -20,7 +20,7 @@ const Navbar = () => {
           <a href="#portfolio" className="nav-link">Projects</a>
           <a href="#contact" className="nav-link">Contact me</a>
         </div>
-        <a href="#hire" className="hire-button">Hire Me</a>
+        <a href="#contact" className="hire-button">Hire Me</a>
         <div className="menu-toggle" onClick={toggleMenu}>
           <div className={`hamburger ${isMenuOpen ? 'active' : ''}`}></div>
         </div>
