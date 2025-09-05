@@ -97,7 +97,7 @@ const Hero = () => {
           <div className="cta-buttons">
             <a href="#contact" className="hire-me-btn">Hire Me</a>
             <a
-              href="/resume/Asim_Resume.pdf"
+              href="/resume/Asim_Ghimire_Resume.pdf"
               download="Asim_Ghimire_Resume.pdf"
               className="download-cv-btn"
             >
