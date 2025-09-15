@@ -20,12 +20,10 @@ const About = () => {
       </div>
       
       <div className="about-container">
-        <div className="about-image">
-          <img src="/images/about.jpg" alt="About" />
-        </div>
-        
         <div className="about-content">
-          <h3 className="about-heading">BSc. CSIT graduate (awaiting results) with practical experience in Software development</h3>
+          <h3 className="about-heading">
+            BSc. CSIT graduate (awaiting results) with practical experience in Software development
+          </h3>
           
           <p className="about-text">
             I have completed my BSc. CSIT degree at Tribhuvan University and am currently awaiting final results. 
