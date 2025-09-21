@@ -2,7 +2,7 @@
 
 .education-section {
   padding: 6rem 2rem;
-  background-color: #121212; /* same as hero */
+  background-color: #0c0c0c; /* same as other sections */
   color: #fff;
   position: relative;
   animation: heroFadeSlide 1.2s ease-out forwards;
@@ -18,44 +18,42 @@
   box-sizing: border-box;
 }
 
-/* Section title (matches hero/about look) */
+/* Section title (matches other sections) */
 .education-section .section-title {
   text-align: center;
-  margin-bottom: 2.5rem;
-  animation: slight-shake 10s ease-in-out infinite;
+  margin-bottom: 4rem;
+  align-items: center;
 }
 
 .education-section .section-title h2 {
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: 700;
-  margin: 0 0 0.6rem;
-  color: rgba(255,255,255,0.95);
-  letter-spacing: 0.02em;
+  color: #fff;
+  margin-bottom: 1rem;
+  position: relative;
+  display: inline-block;
+}
+
+.education-section .section-title h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 3px;
+  background-color: #ff6b00;
 }
 
 .education-section .section-title h2 span {
   color: #FF6B00;
-  text-shadow: 0 0 6px rgba(255,107,0,0.08);
 }
 
-/* small orange underline like the rest of the site */
 .education-section .section-title p {
-  font-size: 0.95rem;
-  color: rgba(255,255,255,0.66);
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 600px;
   margin: 0 auto;
-  max-width: 760px;
-}
-
-/* Underline accent under subtitle (subtle) */
-.education-section .section-title p::after {
-  content: '';
-  display: block;
-  width: 48px;
-  height: 4px;
-  background: #FF6B00;
-  margin: 14px auto 0;
-  border-radius: 2px;
-  opacity: 0.95;
 }
 
 /* Container for education cards: center & stack */
@@ -74,24 +72,22 @@
   display: flex;
   align-items: center;
   gap: 1rem;
-  background-color: rgba(255, 255, 255, 0.03);
-  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.5);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
-  border: 1px solid rgba(255,255,255,0.02);
-  padding: 18px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  padding: 25px;
   width: 100%;
   box-sizing: border-box;
-  margin: 0;
+  margin: 0 0 30px 0;
 }
 
-/* Hover style consistent with hero: slight lift + orange glow */
+/* Hover style consistent with experience cards */
 .education-item:hover {
-  transform: translateY(-6px) scale(1.01);
-  box-shadow: 0 14px 44px rgba(0,0,0,0.65);
-  background-color: rgba(255,255,255,0.04);
-  border-color: rgba(255,107,0,0.09);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+  background-color: rgba(255, 255, 255, 0.08);
 }
 
 /* Left image column */

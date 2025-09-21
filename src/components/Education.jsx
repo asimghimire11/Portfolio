@@ -6,7 +6,7 @@ const Education = () => {
     <section id="education" className="education-section">
       <div className="container">
         <div className="section-title">
-          <h2>My <span>Education</span></h2>
+          <h2>My Education</h2>
           <p>Education Is Not The Learning Of Facts, But The Training Of The Mind To Think.</p>
         </div>
 
