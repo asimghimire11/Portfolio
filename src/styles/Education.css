@@ -1,0 +1,216 @@
+/* Education.css - unified with Hero & About styling */
+
+.education-section {
+  padding: 6rem 2rem;
+  background-color: #121212; /* same as hero */
+  color: #fff;
+  position: relative;
+  animation: heroFadeSlide 1.2s ease-out forwards;
+  opacity: 0;
+}
+
+/* Ensure the page-level .container inside this section matches other sections */
+.education-section .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+
+/* Section title (matches hero/about look) */
+.education-section .section-title {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  animation: slight-shake 10s ease-in-out infinite;
+}
+
+.education-section .section-title h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 0.6rem;
+  color: rgba(255,255,255,0.95);
+  letter-spacing: 0.02em;
+}
+
+.education-section .section-title h2 span {
+  color: #FF6B00;
+  text-shadow: 0 0 6px rgba(255,107,0,0.08);
+}
+
+/* small orange underline like the rest of the site */
+.education-section .section-title p {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.66);
+  margin: 0 auto;
+  max-width: 760px;
+}
+
+/* Underline accent under subtitle (subtle) */
+.education-section .section-title p::after {
+  content: '';
+  display: block;
+  width: 48px;
+  height: 4px;
+  background: #FF6B00;
+  margin: 14px auto 0;
+  border-radius: 2px;
+  opacity: 0.95;
+}
+
+/* Container for education cards: center & stack */
+.education-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 0.5rem;
+  box-sizing: border-box;
+}
+
+/* Card / item */
+.education-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background-color: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
+  border: 1px solid rgba(255,255,255,0.02);
+  padding: 18px;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+/* Hover style consistent with hero: slight lift + orange glow */
+.education-item:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 14px 44px rgba(0,0,0,0.65);
+  background-color: rgba(255,255,255,0.04);
+  border-color: rgba(255,107,0,0.09);
+}
+
+/* Left image column */
+.education-image {
+  flex: 0 0 110px;
+  max-width: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-right: 8px;
+}
+
+/* Make the icons/images visually consistent (circular feel, subtle float) */
+.education-image img {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  border-radius: 12px;
+  transition: transform 0.6s ease;
+  animation: floatUpDown 6s ease-in-out infinite;
+  filter: drop-shadow(0 8px 20px rgba(0,0,0,0.6));
+  background: linear-gradient(180deg, rgba(255,107,0,0.02), rgba(255,107,0,0.01));
+  padding: 8px;
+}
+
+/* Scale image on hover */
+.education-item:hover .education-image img {
+  transform: scale(1.08) translateY(-6px);
+}
+
+/* Content column */
+.education-content {
+  flex: 1;
+  padding-left: 6px;
+}
+
+.education-content h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0 0 6px;
+  color: #fff;
+}
+
+.education-content p {
+  font-size: 15px;
+  color: rgba(255,255,255,0.72);
+  margin: 0 0 6px;
+  line-height: 1.5;
+}
+
+/* Year accent */
+.education-year {
+  display: inline-block;
+  margin-top: 8px;
+  font-weight: 700;
+  color: #FF6B00;
+}
+
+/* Entrance animation (slightly slower than before for smoothness) */
+.education-item {
+  opacity: 0;
+  transform: translateY(18px);
+  animation: fadeInUp 0.6s forwards;
+}
+
+.education-item:nth-child(1) { animation-delay: 0.18s; }
+.education-item:nth-child(2) { animation-delay: 0.36s; }
+.education-item:nth-child(3) { animation-delay: 0.54s; }
+
+/* Reused shared animations from hero */
+@keyframes slight-shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(2px) rotate(0.2deg); }
+  50% { transform: translateX(-1px) rotate(-0.1deg); }
+  75% { transform: translateX(1px) rotate(0.1deg); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes heroFadeSlide {
+  0%   { opacity: 0; transform: translateY(40px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes floatUpDown {
+  0%,100% { transform: translateY(0); }
+  50%     { transform: translateY(-8px); }
+}
+
+/* Responsive: stack image above content on small screens */
+@media (max-width: 992px) {
+  .education-item {
+    flex-direction: column;
+    text-align: center;
+    padding: 22px;
+  }
+
+  .education-image {
+    flex: 0 0 auto;
+    max-width: 140px;
+    width: 100%;
+    padding: 0 0 12px 0;
+  }
+
+  .education-image img {
+    width: 110px;
+    height: 110px;
+  }
+
+  .education-content {
+    padding-left: 0;
+  }
+}
+
+@media (max-width: 576px) {
+  .education-section { padding: 4rem 1rem; }
+  .education-image img { width: 90px; height: 90px; }
+  .education-content h3 { font-size: 18px; }
+}
