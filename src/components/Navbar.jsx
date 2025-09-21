@@ -13,7 +13,7 @@ const Navbar = () => {
       <div className="navbar-container">
         <div className="logo">ASIM GHIMIRE</div>
         <div className={`nav-links ${isMenuOpen ? 'active' : ''}`}>
-          <a href="#home" className="nav-link active">Home</a>
+          <a href="#home" className="nav-link">Home</a>
           <a href="#services" className="nav-link">Services</a>
           <a href="#about" className="nav-link">About me</a>
           <a href="#experience" className="nav-link">Experience</a>

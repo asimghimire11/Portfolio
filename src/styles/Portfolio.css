@@ -76,10 +76,6 @@
   transition: opacity 0.3s ease;
 }
 
-/* .portfolio-item:hover .portfolio-overlay {
-  opacity: 1;
-} */
-
 .portfolio-title {
   font-size: 1.5rem;
   font-weight: 600;
@@ -113,7 +109,6 @@
   background-color: #e05e00;
 }
 
-/* Temporary placeholder for portfolio images */
 .portfolio-image::before {
   content: '';
   position: absolute;
@@ -123,6 +118,84 @@
   height: 100%;
   background-color: #333;
   z-index: -1;
+}
+
+.portfolio-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.portfolio-item:hover .portfolio-overlay {
+  opacity: 1;
+}
+
+.overlay-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  max-width: 260px;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  transform: translateY(30px) scale(0.95);
+  opacity: 0;
+  transition: all 0.4s ease;
+}
+
+.portfolio-item:hover .overlay-card {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+
+.overlay-title {
+  color: #121212;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+
+.overlay-desc {
+  font-size: 0.9rem;
+  color: #333;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+
+.overlay-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 0.6rem;
+}
+
+.overlay-btn {
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.view-btn {
+  background: #ff6b00;
+}
+
+.view-btn:hover {
+  background: #e05e00;
+}
+
+.code-btn {
+  background: #333;
+}
+
+.code-btn:hover {
+  background: #000;
 }
 
 @media (max-width: 992px) {
@@ -150,5 +223,69 @@
   .filter-btn {
     width: 100%;
     max-width: 200px;
+  }
+}
+
+/* Tablets */
+@media (max-width: 992px) {
+  .overlay-card {
+    max-width: 220px;
+    padding: 1.2rem;
+  }
+  .overlay-title {
+    font-size: 1.1rem;
+  }
+  .overlay-desc {
+    font-size: 0.85rem;
+  }
+  .overlay-btn {
+    padding: 0.45rem 0.9rem;
+    font-size: 0.8rem;
+  }
+}
+
+/* Large phones */
+@media (max-width: 768px) {
+  /* Make grid 1 column */
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+  }
+  .overlay-card {
+    max-width: 80%;
+    width: 80%;
+    padding: 1.4rem;
+  }
+  .overlay-desc {
+    font-size: 0.9rem;
+  }
+  .overlay-buttons {
+    flex-direction: row;
+    gap: 0.8rem;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .overlay-card {
+    max-width: 90%;
+    width: 90%;
+    padding: 1rem;
+  }
+  .overlay-title {
+    font-size: 1rem;
+  }
+  .overlay-desc {
+    font-size: 0.85rem;
+    margin-bottom: 0.8rem;
+  }
+  .overlay-buttons {
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  .overlay-btn {
+    width: 100%;
+    text-align: center;
+    padding: 0.5rem;
   }
 }

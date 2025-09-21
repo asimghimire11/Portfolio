@@ -1,7 +1,11 @@
 import '../styles/Hero.css';
 import { TypeAnimation } from 'react-type-animation';
+import { useInView } from 'react-intersection-observer';
 
 const Hero = () => {
+  const [ref1, inView1] = useInView({ triggerOnce: false, threshold: 0.2 });
+  const [ref2, inView2] = useInView({ triggerOnce: false, threshold: 0.2 });
+  const [ref3, inView3] = useInView({ triggerOnce: false, threshold: 0.2 });
   return (
     <section id="home" className="hero-section">
       <div className="hero-content">
@@ -108,15 +112,15 @@ const Hero = () => {
         </div>
 
         <div className="stats-container">
-          <div className="stat-box">
+          <div ref={ref1} className={`stat-box scroll-pop ${inView1 ? 'pop-visible' : ''}`}>
             <h3 className="stat-number">Bachelor</h3>
             <p className="stat-text">Graduate</p>
           </div>
-          <div className="stat-box">
+          <div ref={ref2} className={`stat-box scroll-pop ${inView2 ? 'pop-visible' : ''}`}>
             <h3 className="stat-number">4+</h3>
             <p className="stat-text">Projects</p>
           </div>
-          <div className="stat-box">
+          <div ref={ref3} className={`stat-box scroll-pop ${inView3 ? 'pop-visible' : ''}`}>
             <h3 className="stat-number">2+</h3>
             <p className="stat-text">Organizations</p>
           </div>

@@ -204,7 +204,41 @@
   clip-path: circle(45% at center);
 }
 
-/* ---------- FIXED MID SCREENS (992px - 1200px) ---------- */
+.stat-box {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+}
+
+.stat-box:hover {
+  transform: translateY(-6px) scale(1.05);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+}
+
+.stat-box:hover .stat-number,
+.stat-box:hover .stat-text {
+  color: #ffffff;
+}
+
+.hire-me-btn {
+  transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+.hire-me-btn:hover {
+  transform: translateY(-4px) scale(1.03);
+  background-color: #e05e00;
+  color: #ffffff;
+}
+
+.download-cv-btn {
+  transition: transform 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+.download-cv-btn:hover {
+  transform: translateY(-4px) scale(1.03);
+  border-color: #ff6b00;
+  color: #ffffff;
+  background-color: rgba(255, 107, 0, 0.1);
+}
+
 @media (max-width: 1200px) and (min-width: 993px) {
   .hero-image {
     position: relative;
@@ -314,3 +348,87 @@
     margin-top: 1rem;
   }
 }
+
+/* Smooth fade/slide for hero on load */
+.hero-section {
+  animation: heroFadeSlide 1.2s ease-out forwards;
+  opacity: 0;
+}
+@keyframes heroFadeSlide {
+  0%   {opacity: 0; transform: translateY(40px);}
+  100% {opacity: 1; transform: translateY(0);}
+}
+
+/* Re-use slight shake for greeting container */
+.animated-text-container {
+  animation: slight-shake 10s ease-in-out infinite;
+}
+
+/* Float animation for profile image */
+.hero-image img {
+  animation: floatUpDown 6s ease-in-out infinite;
+}
+@keyframes floatUpDown {
+  0%, 100% {transform: translateY(0);}
+  50%      {transform: translateY(-10px);}
+}
+
+/* Pulse glow for social icons on hover */
+.social-icon {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.social-icon:hover {
+  transform: translateY(-3px) scale(1.1);
+  box-shadow: 0 0 12px rgba(255, 107, 0, 0.5);
+}
+
+/* Buttons subtle glow on hover */
+.hire-me-btn:hover,
+.download-cv-btn:hover {
+  box-shadow: 0 0 12px rgba(255,107,0,0.6);
+}
+
+/* Stats bounce on hover */
+.stat-box:hover {
+  animation: statBounce 0.6s ease;
+}
+@keyframes statBounce {
+  0%   {transform: translateY(0);}
+  30%  {transform: translateY(-8px);}
+  60%  {transform: translateY(4px);}
+  100% {transform: translateY(0);}
+}
+
+/* Tablets: keep float & fade active */
+@media (max-width: 992px) {
+  .hero-section {
+    animation: heroFadeSlide 1.2s ease-out forwards;
+  }
+  .hero-image img {
+    animation: floatUpDown 6s ease-in-out infinite;
+  }
+}
+
+/* Phones: same animations but slightly smaller float */
+@media (max-width: 768px) {
+  .hero-image img {
+    animation: floatUpDownMobile 6s ease-in-out infinite;
+  }
+  @keyframes floatUpDownMobile {
+    0%, 100% {transform: translateY(0);}
+    50%      {transform: translateY(-6px);}
+  }
+}
+
+/* Extra small phones */
+@media (max-width: 480px) {
+  /* Reduce initial slide distance to fit small screens */
+  .hero-section {
+    animation: heroFadeSlideMobile 1.2s ease-out forwards;
+  }
+  @keyframes heroFadeSlideMobile {
+    0%   {opacity: 0; transform: translateY(20px);}
+    100% {opacity: 1; transform: translateY(0);}
+  }
+}
+
